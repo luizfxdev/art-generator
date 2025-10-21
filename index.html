@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criador de Artes com Texto Interativo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Vídeo de fundo em tela cheia -->
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="assets/background.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+
+    <!-- Controles de Áudio -->
+    <div class="audio-controls">
+      <button id="play-audio" class="audio-btn" title="Tocar música" aria-label="Tocar música de fundo">🎵</button>
+      <button id="pause-audio" class="audio-btn" title="Pausar música" aria-label="Pausar música de fundo">⏸️</button>
+    </div>
+
+    <!-- Container principal fixo à esquerda -->
+    <div class="main-container">
+      <h1>✨ Criador de Artes ✨</h1>
+
+      <!-- Campo de entrada de texto -->
+      <div class="input-group">
+        <label for="text-input">Digite seu texto:</label>
+        <input
+          type="text"
+          id="text-input"
+          placeholder="Digite sua palavra ou frase aqui..."
+          maxlength="100"
+          aria-describedby="text-hint"
+        />
+        <small id="text-hint">Máximo de 100 caracteres</small>
+      </div>
+
+      <!-- Seletor de estilo de arte -->
+      <div class="input-group">
+        <label for="style-select">Escolha o estilo de arte:</label>
+        <select id="style-select" aria-label="Selecione um estilo de decoração">
+          <option value="0">Selecione um estilo...</option>
+          <option value="1">🌸 Moldura de Coração</option>
+          <option value="2">✿ Ornamentos Florais</option>
+          <option value="3">📦 Caixa ASCII</option>
+          <option value="4">⭐ Estrelas Brilhantes</option>
+          <option value="5">➤ Setas Decorativas</option>
+          <option value="6">♦ Diamantes Elegantes</option>
+          <option value="7">〰️ Zigue-Zague</option>
+          <option value="8">🚩 Bandeirinhas</option>
+          <option value="9">😊 Emojis Fofos</option>
+          <option value="10">✧ Frases Estilizadas</option>
+        </select>
+      </div>
+
+      <!-- Área dos botões -->
+      <div class="button-group">
+        <button class="custom-btn btn-10" id="convert-btn" aria-label="Converter texto em arte">CONVERTER</button>
+        <button class="custom-btn btn-10" id="reset-btn" aria-label="Limpar e retornar ao início">RETORNAR</button>
+      </div>
+
+      <!-- Seção de Resultado -->
+      <div class="result-section" id="result-section">
+        <h2>📋 Resultado:</h2>
+        <div class="result-display" id="result-display" role="region" aria-live="polite" aria-label="Arte gerada">
+          <p class="result-placeholder">Sua arte aparecerá aqui...</p>
+        </div>
+        <button
+          class="copy-btn"
+          id="copy-btn"
+          style="display: none"
+          aria-label="Copiar arte para área de transferência"
+        >
+          📋 Copiar Arte
+        </button>
+      </div>
+    </div>
+
+    <!-- Elemento de áudio -->
+    <audio id="background-audio" loop>
+      <source src="assets/theme.mp3" type="audio/mpeg" />
+      Seu navegador não suporta áudio HTML5.
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>

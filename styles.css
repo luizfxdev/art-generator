@@ -1,0 +1,507 @@
+/* ============================================
+   RESET E CONFIGURAÇÕES GLOBAIS
+============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  position: relative;
+  background: #0a0518;
+}
+
+/* ============================================
+   VÍDEO DE FUNDO - TELA CHEIA
+============================================ */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ============================================
+   CONTROLES DE ÁUDIO
+============================================ */
+.audio-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+}
+
+.audio-btn {
+  background: rgba(10, 5, 24, 0.9);
+  border: 2px solid #14540d;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-btn:hover {
+  background: rgba(0, 255, 85, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 255, 85, 0.5);
+}
+
+.audio-btn:active {
+  transform: scale(0.95);
+}
+
+.audio-btn:focus {
+  outline: 2px solid rgba(0, 255, 85, 0.6);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   CONTAINER PRINCIPAL - FIXO À ESQUERDA
+============================================ */
+.main-container {
+  position: fixed;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  max-height: 90vh;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 35px 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(20, 84, 13, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 100;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Scrollbar personalizada */
+.main-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.main-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(22, 9, 240, 0.6), rgba(49, 110, 244, 0.6));
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.main-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(22, 9, 240, 0.9), rgba(49, 110, 244, 0.9));
+}
+
+/* ============================================
+   TÍTULO
+============================================ */
+.main-container h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1609f0;
+  text-align: center;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   GRUPOS DE INPUT
+============================================ */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #353535;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  color: #353535;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #d0d5dd;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #316ef4;
+  box-shadow: 0 0 0 4px rgba(49, 110, 244, 0.1), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input-group small {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #676767;
+  font-style: italic;
+}
+
+/* ============================================
+   ÁREA DOS BOTÕES - HORIZONTAL
+============================================ */
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+  justify-content: space-between;
+}
+
+/* ============================================
+   ESTILO DOS BOTÕES (btn-10)
+============================================ */
+.custom-btn {
+  width: 100%;
+  height: 48px;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+  border: none;
+  overflow: hidden;
+}
+
+.btn-10 {
+  background: rgb(22, 9, 240);
+  background: linear-gradient(0deg, rgba(22, 9, 240, 1) 0%, rgba(49, 110, 244, 1) 100%);
+}
+
+.btn-10::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  transform: scale(0.1);
+}
+
+.btn-10:hover {
+  color: #fff;
+  background: transparent;
+  transform: translateY(-2px);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 10px 25px 0px rgba(0, 0, 0, 0.15),
+    4px 6px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+.btn-10:hover::after {
+  background: rgb(0, 3, 255);
+  background: linear-gradient(0deg, rgba(2, 126, 251, 1) 0%, rgba(0, 3, 255, 1) 100%);
+  transform: scale(1);
+}
+
+.btn-10:active {
+  transform: translateY(0);
+}
+
+.btn-10:focus {
+  outline: 3px solid rgba(49, 110, 244, 0.4);
+  outline-offset: 3px;
+}
+
+/* ============================================
+   SEÇÃO DE RESULTADO
+============================================ */
+.result-section {
+  margin-top: 25px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #353535;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.result-display {
+  background: rgba(240, 242, 245, 0.8);
+  border: 2px solid #d0d5dd;
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 120px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #353535;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.result-display::-webkit-scrollbar {
+  width: 6px;
+}
+
+.result-display::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+.result-display::-webkit-scrollbar-thumb {
+  background: rgba(22, 9, 240, 0.3);
+  border-radius: 10px;
+}
+
+.result-display.has-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #316ef4;
+  box-shadow: 0 0 0 3px rgba(49, 110, 244, 0.1), inset 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.result-placeholder {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Botão de copiar */
+.copy-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  background: linear-gradient(135deg, #14540d, #1a6b11);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(20, 84, 13, 0.3);
+}
+
+.copy-btn:hover {
+  background: linear-gradient(135deg, #1a6b11, #14540d);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(20, 84, 13, 0.4);
+}
+
+.copy-btn:active {
+  transform: translateY(0);
+}
+
+.copy-btn.copied {
+  background: linear-gradient(135deg, #00c853, #00e676);
+  animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ============================================
+   RESPONSIVIDADE
+============================================ */
+
+/* Tablets e telas médias */
+@media screen and (max-width: 1024px) {
+  .main-container {
+    left: 20px;
+    width: 380px;
+  }
+}
+
+/* Smartphones e telas pequenas */
+@media screen and (max-width: 768px) {
+  .main-container {
+    position: relative;
+    left: 0;
+    top: 0;
+    transform: none;
+    width: calc(100% - 30px);
+    max-width: 500px;
+    margin: 20px auto;
+    max-height: none;
+  }
+
+  .main-container h1 {
+    font-size: 28px;
+  }
+
+  .audio-controls {
+    top: 15px;
+    right: 15px;
+  }
+
+  .audio-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  /* Botões em stack vertical */
+  .button-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .custom-btn {
+    width: 100%;
+    height: 50px;
+    font-size: 15px;
+  }
+
+  .result-display {
+    font-size: 13px;
+    max-height: 250px;
+  }
+}
+
+/* Telas muito pequenas */
+@media screen and (max-width: 480px) {
+  .main-container {
+    width: calc(100% - 20px);
+    padding: 25px 20px;
+    margin: 15px auto;
+    border-radius: 15px;
+  }
+
+  .main-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .input-group {
+    margin-bottom: 16px;
+  }
+
+  .input-group label {
+    font-size: 13px;
+  }
+
+  .input-group input,
+  .input-group select {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .result-section h2 {
+    font-size: 20px;
+  }
+
+  .result-display {
+    padding: 15px;
+    min-height: 100px;
+    font-size: 12px;
+  }
+
+  .copy-btn {
+    font-size: 12px;
+    padding: 9px;
+  }
+}
+
+/* Modo paisagem em dispositivos móveis */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .main-container {
+    max-height: 85vh;
+    padding: 20px;
+  }
+
+  .main-container h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .input-group {
+    margin-bottom: 12px;
+  }
+
+  .button-group {
+    margin: 15px 0;
+  }
+
+  .result-display {
+    max-height: 150px;
+  }
+}
